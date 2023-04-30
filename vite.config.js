@@ -4,7 +4,7 @@ import path from "path"
 
 export default defineConfig({
   build: {
-    outDir: path.join(__dirname, "build"),
+    outDir: path.join(__dirname, "dist"),
   },
   plugins: [react()],
 })
