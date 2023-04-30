@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  --normal-color: silver;
+  --fighting-color: red;
+  --flying-color: aquamarine;
+  --poison-color: greenyellow;
+  --ground-color: burlywood;
+  --rock-color: antiquewhite;
+  --bug-color: coral;
+  --ghost-color: cornflowerblue;
+  --steel-color: darkgray;
+  --fire-color: firebrick;
+  --water-color: aqua;
+  --grass-color: darkseagreen;
+  --electric-color: yellow;
+  --psychic-color: maroon;
+  --ice-color: powderblue;
+  --dragon-color: orange;
+  --dark-color: gray;
+  --fairy-color: darkslateblue;
+  --unknown-color: palegoldenrod;
+  --shadow-color: #222;
+}
+.temp{
+  color: maroon;
+}
