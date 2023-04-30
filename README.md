@@ -1,6 +1,6 @@
 # pokedex
-functionality:
-search
-limit
-filter: type, name
-switch image
+Functionality:
+search;
+limit;
+filter: type, name;
+switch image;
