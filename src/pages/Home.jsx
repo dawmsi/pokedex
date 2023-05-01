@@ -28,8 +28,8 @@ export const Home = () => {
   }, [data, isError, isLoading, updateList])
 
   useEffect(() => {
-    fetchPoke(limit)
-  }, [fetchPoke, limit])
+    fetchPoke(!debounced ? limit : 1300)
+  }, [debounced, fetchPoke, limit])
 
   return (
     <>
