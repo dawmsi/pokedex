@@ -4,6 +4,8 @@ import { FilterButton } from "../Filter/FilterButton"
 import { useState } from "react"
 
 export const GridItem = ({ name, url }) => {
+  const [showDetails, setShowDetails] = useState(false)
+
   const pokId = Number(
     url.replace("https://pokeapi.co/api/v2/pokemon/", "").slice(0, -1)
   )
@@ -21,6 +23,7 @@ export const GridItem = ({ name, url }) => {
 
   const image = data?.sprites?.[`${toggler[Number(toggleView)]}_default`]
   const species = data?.types
+
   console.log(data)
 
   return (
@@ -88,9 +91,25 @@ export const GridItem = ({ name, url }) => {
             </div>
 
             <div className="absolute h-fit bg-white w-full bottom-0 px-4 py-[10px]">
-              <h2 className="flex justify-between items-center w-full truncate hover:whitespace-normal font-medium text-[20px] leading-[30px]">
-                {name} <snap className='justify-self-end text-sm underline text-blue-400 hover:text-blue-700 cursor-pointer'>details</snap>
-              </h2>
+              <div className="flex justify-between items-center w-full">
+                <h2 className=" truncate hover:whitespace-normal font-medium text-[20px] leading-[30px]">
+                  {name}
+                </h2>
+                <button
+                  className="justify-self-end text-sm underline text-blue-400 hover:text-blue-700 cursor-pointer"
+                  onClick={() => setShowDetails((prev) => !prev)}
+                >
+                  {!showDetails ? "show" : "hide"} details
+                </button>
+              </div>
+              {showDetails && (
+                <div>
+                  <p>id: {data?.id}</p>
+                  <p>is_battle_only : {data?.is_battle_only ? "yes" : "no"}</p>
+                  <p>is_mega : {data?.is_mega ? "yes" : "no"}</p>
+                </div>
+              )}
+
               <div className="flex flex-wrap gap-2 py-2 font-normal text-[14px] text-black text-opacity-60 leading-[21px]">
                 {species &&
                   species.map(({ type, slot }) => (
