@@ -7,7 +7,7 @@ export const SearchLine = ({
 }) => {
 
   return (
-    <div className='flex px-4 items-center w-full mt-[32px] text-black text-opacity-50 border-[2px] rounded-[6px]'>
+    <div className='flex px-4 items-center w-full mt-[32px] text-black text-opacity-50 border-[2px] hover:border-[#222] rounded-[6px]'>
       <div>
         <img className='cursor-pointer' src={SearchIcon} alt='icon' />
       </div>

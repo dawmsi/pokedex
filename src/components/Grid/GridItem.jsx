@@ -25,7 +25,7 @@ export const GridItem = ({ name, url }) => {
 
   return (
     <>
-      <div className="border-2 item__shadow relative flex flex-col justify-between h-[308px] w-[312px] md:w-[240px] md:h-[244px] mt-[8px] rounded-[4px] overflow-hidden item-shadow">
+      <div className="hover:border-black transition-all bg-white border-2 item__shadow relative flex flex-col justify-between h-[308px] w-[312px] md:w-[240px] md:h-[244px] mt-[8px] rounded-[4px] overflow-hidden item-shadow">
         {isFetching ? (
           <div role="status" className="grid place-content-center h-full">
             <svg
@@ -72,8 +72,11 @@ export const GridItem = ({ name, url }) => {
                 </div>
               ) : (
                 <figure
-                  className="h-full cursor-pointer"
-                  onClick={() => setToggleView((prevS) => !prevS)}
+                  className="hover:bg-[#222] h-full cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setToggleView((prevS) => !prevS)
+                  }}
                 >
                   <img
                     className="w-full h-full object-contain object-center"
@@ -83,9 +86,10 @@ export const GridItem = ({ name, url }) => {
                 </figure>
               )}
             </div>
+
             <div className="absolute h-fit bg-white w-full bottom-0 px-4 py-[10px]">
-              <h2 className="w-full truncate hover:whitespace-normal font-medium text-[20px] leading-[30px]">
-                {name}
+              <h2 className="flex justify-between items-center w-full truncate hover:whitespace-normal font-medium text-[20px] leading-[30px]">
+                {name} <snap className='justify-self-end text-sm underline text-blue-400 hover:text-blue-700 cursor-pointer'>details</snap>
               </h2>
               <div className="flex flex-wrap gap-2 py-2 font-normal text-[14px] text-black text-opacity-60 leading-[21px]">
                 {species &&

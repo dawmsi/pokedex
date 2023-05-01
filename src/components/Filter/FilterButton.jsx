@@ -33,7 +33,7 @@ export const FilterButton = ({ name, url }) => {
   return (
     <button
       key={name}
-      className={`${colorVariants[name]} opacity-75 text-white font-bold py-2 px-4 rounded`}
+      className={`${colorVariants[name]} hover:border-[#222] border-2 border-transparent opacity-75 text-white font-bold py-2 px-4 rounded`}
       type="button"
       onClick={() =>
         updateList({
